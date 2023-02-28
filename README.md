@@ -1,3 +1,5 @@
+## INSTRUCTIONS FROM SLACK
+
 Create a new react project following the steps in the Repo (https://github.com/dd-code-immersives/movie-project/tree/main)
 
 Create a Component called MovieForm that has the following fields: 
@@ -21,7 +23,7 @@ The Movies should be displayed in the table
 
 
 
-
+## INSTRUCTIONS FROM GITHUB README FILE
 
 1) Project Setup:
 - Create a new github repo called ReactIntroForm with the following options:
