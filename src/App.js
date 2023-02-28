@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import data from './data'
 import MovieForm from './components/MovieForm'
-import TableHead from './components/TableHead'
-import TableBody from './components/TableBody'
+// import TableHead from './components/TableHead'
+import Table from './components/Table'
 
 export default function App() {
 
@@ -29,10 +29,7 @@ export default function App() {
   return (
     <>
       <h1>Movie Form</h1>
-      <table>
-        <TableHead />
-        <TableBody movies={moviesData} deleteMovie={deleteMovie}/>
-      </table>
+      <Table movies={moviesData} deleteMovie={deleteMovie}/>
       <MovieForm addMovie={addMovie}/>
     </>
   );
