@@ -83,7 +83,7 @@ const NewMovieForm = ({ addMovie }) => {
         <input
           type="text"
           name="imdbRating"
-          value={formData.mdbRating}
+          value={formData.imdbRating}
           id="imdbRating"
           placeholder="Rating"
           onChange={handleFormInputChange}
