@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function TableHead () {
+const TableHead = () => {
   return (
     <thead>
       <tr>
@@ -17,3 +17,5 @@ export default function TableHead () {
     </thead>
   );
 };
+
+export default TableHead

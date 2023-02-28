@@ -3,7 +3,6 @@ import React from 'react'
 export default function TableBody ({ movies, deleteMovie }) {
 
   const deleteRow = (index) => {
-    console.log(`Deleting index ${index}!`);
     deleteMovie(index)
   };
 

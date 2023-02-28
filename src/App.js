@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import data from './data'
-import NewMovieForm from './components/NewMovieForm'
-import Head from './components/TableHead'
+import MovieForm from './components/MovieForm'
+import TableHead from './components/TableHead'
 import TableBody from './components/TableBody'
 
 export default function App() {
@@ -28,12 +28,12 @@ export default function App() {
 
   return (
     <>
-    <h1>Movie Form</h1>
+      <h1>Movie Form</h1>
       <table>
-        <Head />
+        <TableHead />
         <TableBody movies={moviesData} deleteMovie={deleteMovie}/>
       </table>
-      <NewMovieForm addMovie={addMovie}/>
+      <MovieForm addMovie={addMovie}/>
     </>
   );
 }

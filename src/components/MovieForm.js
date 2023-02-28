@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const NewMovieForm = ({ addMovie }) => {
+const MovieForm = ({ addMovie }) => {
 
     const resetForm = {
         title: "",
@@ -116,4 +116,4 @@ const NewMovieForm = ({ addMovie }) => {
   );
 }
 
-export default NewMovieForm
+export default MovieForm
