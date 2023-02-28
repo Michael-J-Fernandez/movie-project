@@ -1,12 +1,9 @@
-import React from 'react'
-
 export default function TableBody ({ movies, deleteMovie }) {
 
   const deleteRow = (index) => {
     deleteMovie(index)
   };
   
-
   return (
     <table>
       <thead>

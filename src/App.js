@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import data from './data'
 import MovieForm from './components/MovieForm'
-// import TableHead from './components/TableHead'
 import Table from './components/Table'
 
 export default function App() {

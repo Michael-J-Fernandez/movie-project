@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 const MovieForm = ({ addMovie }) => {
 
@@ -15,22 +15,18 @@ const MovieForm = ({ addMovie }) => {
 
   const [formData, setFormData] = useState(resetForm);
 
-
   const handleFormInputChange = (event) => {
-        const { name, value } = event.target;
+      const { name, value } = event.target;
 
-        setFormData(prevFormData => ({...prevFormData, [name]: value}));
-    }
-
+      setFormData(prevFormData => ({...prevFormData, [name]: value}));
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     addMovie(formData)
-
     setFormData(resetForm)
   };
-
 
   return (
     <form onSubmit={handleSubmit}>
