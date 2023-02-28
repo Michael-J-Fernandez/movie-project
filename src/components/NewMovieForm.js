@@ -1,84 +1,119 @@
-// import React, {useState} from 'react'
+import React, {useState} from 'react'
 
-// export default function NewMovieForm () {
-//   const [formData, setFormData] = useState({
-//     title: "",
-//     actors: [],
-//     plot: "",
-//     genre: "",
-//     imdbRating: "",
-//     director: "",
-//     year: "",
-//     // dateAdded: Date.now(),
-//     // dateModified: Date.now()
-//   });
+const NewMovieForm = ({ addMovie }) => {
 
-//   const handleFormInputChange = (event) => {
-//     const { name, value } = event.target;
+    const resetForm = {
+        title: "",
+        actors: "",
+        plot: "",
+        genre: "",
+        imdbRating: "",
+        director: "",
+        year: "",
+        dateAdded: "",
+    };
 
-//     console.log(name, value);
+  const [formData, setFormData] = useState(resetForm);
 
-//     setFormData((prevFormData) => {
-//       return {
-//         ...prevFormData,
-//         [name]:  [name] === "actors" ? value.split(', ') : value
-//       };
-//     });
-//   };
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault()
+  const handleFormInputChange = (event) => {
+        const { name, value } = event.target;
 
-//     const newMovie = {
-//         ...formData
-//     }
-//   }
+        setFormData(prevFormData => ({...prevFormData, [name]: value}));
+    }
 
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <input
-//         type="text"
-//         name="title"
-//         placeholder="Movie title"
-//         onChange={handleFormInputChange}
-//       />
-//       <input
-//         type="text"
-//         name="actors"
-//         placeholder="Actors"
-//         onChange={handleFormInputChange}
-//       />
-//       <input
-//         type="text"
-//         name="plot"
-//         placeholder="Plot..."
-//         onChange={handleFormInputChange}
-//       />
-//       <input
-//         type="text"
-//         name="genre"
-//         placeholder="Grenre(s)"
-//         onChange={handleFormInputChange}
-//       />
-//       <input
-//         type="text"
-//         name="imdbRating"
-//         placeholder="Rating"
-//         onChange={handleFormInputChange}
-//       />
-//       <input
-//         type="text"
-//         name="director"
-//         placeholder="Director"
-//         onChange={handleFormInputChange}
-//       />
-//       <input
-//         type="text"
-//         name="year"
-//         placeholder="Year"
-//         onChange={handleFormInputChange}
-//       />
-//       <button>Add</button>
-//     </form>
-//   );
-// }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    addMovie(formData)
+
+    setFormData(resetForm)
+  };
+
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="title">
+        Title:
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          id="title"
+          placeholder="Movie title"
+          onChange={handleFormInputChange}
+        />
+      </label>
+      <label htmlFor="actors">
+        Actors:
+        <input
+          type="text"
+          name="actors"
+          value={formData.actors}
+          id="actors"
+          placeholder="Actors"
+          onChange={handleFormInputChange}
+        />
+      </label>
+      <label htmlFor="actors">
+        Plot:
+        <input
+          type="text"
+          name="plot"
+          value={formData.plot}
+          id="plot"
+          placeholder="Plot..."
+          onChange={handleFormInputChange}
+        />
+      </label>
+      <label htmlFor="actors">
+        Genre:
+        <input
+          type="text"
+          name="genre"
+          value={formData.genre}
+          id="genre"
+          placeholder="Grenre(s)"
+          onChange={handleFormInputChange}
+        />
+      </label>
+      <label htmlFor="imdbRating">
+        imdbRating:
+        <input
+          type="text"
+          name="imdbRating"
+          value={formData.mdbRating}
+          id="imdbRating"
+          placeholder="Rating"
+          onChange={handleFormInputChange}
+        />
+      </label>
+      <label htmlFor="director">
+        Director:
+        <input
+          type="text"
+          name="director"
+          value={formData.director}
+          id="director"
+          placeholder="Director"
+          onChange={handleFormInputChange}
+        />
+      </label>
+      <label htmlFor="year">
+        Year:
+        <input
+          type="text"
+          name="year"
+          value={formData.year}
+          id="year"
+          placeholder="Year"
+          onChange={handleFormInputChange}
+        />
+      </label>
+      <button>Add</button>
+    </form>
+  );
+}
+
+export default NewMovieForm

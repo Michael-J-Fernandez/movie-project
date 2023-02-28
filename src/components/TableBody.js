@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function Body ({ movies }) {
+export default function TableBody ({ movies, deleteMovie }) {
 
   const deleteRow = (index) => {
-    return console.log(`Deleting index ${index}!`);
+    console.log(`Deleting index ${index}!`);
+    deleteMovie(index)
   };
 
   return (
@@ -18,7 +19,6 @@ export default function Body ({ movies }) {
           <td>{movie.director}</td>
           <td>{movie.year}</td>
           <td>{movie.dateAdded}</td>
-          <td>{movie.dateModified}</td>
           <td>
             <button onClick={() => deleteRow(index)}>Delete</button>
           </td>
