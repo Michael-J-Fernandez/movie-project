@@ -13,11 +13,18 @@ const Table = ({ movies, deleteMovie }) => {
   };
 
   const filteredMovies = movies.filter((movie) => {
-    return movie[query.searchCategory].toLowerCase()
-      .includes(query.searchText.toLowerCase());
+    const { searchCategory, searchText } = query;
+
+    if (searchCategory !== 'actors') {
+      return movie[searchCategory].toString().toLowerCase()
+        .includes(searchText.toLowerCase());
+
+    } else if (searchCategory === 'actors') {
+      return movie[searchCategory].join(' ').toLowerCase().includes(searchText)
+    }
   });
 
-  console.log("Filtered Movie:  ", filteredMovies)
+  // console.log("Filtered Movie:  ", filteredMovies)
 
 
   const moviesRows = filteredMovies.map((movie, index) => (
@@ -53,7 +60,7 @@ const Table = ({ movies, deleteMovie }) => {
             <th>DELETE</th>
           </tr>
         </thead>
-        <tbody>{filteredMovies.length === 0 ? <h1>Not Found</h1> : moviesRows}</tbody>
+        <tbody>{filteredMovies.length === 0 ? <h1 className="not-found">Not Found</h1> : moviesRows}</tbody>
       </table>
     </>
   );
