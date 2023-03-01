@@ -16,9 +16,9 @@ const MovieForm = ({ addMovie }) => {
   const [formData, setFormData] = useState(resetForm);
 
   const handleFormInputChange = (event) => {
-      const { name, value } = event.target;
+    const { name, value } = event.target;
 
-      setFormData(prevFormData => ({...prevFormData, [name]: value}));
+    setFormData(prevFormData => ({...prevFormData, [name]: value}));
   }
 
   const handleSubmit = (event) => {

@@ -1,41 +1,62 @@
-export default function TableBody ({ movies, deleteMovie }) {
+import { useState } from "react";
+import SearchForm from "./SearchForm";
+
+const Table = ({ movies, deleteMovie }) => {
+
+  const [query, setQuery] = useState({
+    searchText: "",
+    searchCategory: "title",
+  });
 
   const deleteRow = (index) => {
-    deleteMovie(index)
+    deleteMovie(index);
   };
-  
+
+  const filteredMovies = movies.filter((movie) => {
+    return movie[`${query.searchCategory}`]
+      .includes(query.searchText);
+  });
+
+  console.log("Filtered Movie:  ", filteredMovies)
+
+
+  const moviesRows = filteredMovies.map((movie, index) => (
+    <tr key={index}>
+      <td>{movie.title}</td>
+      <td>{movie.actors.join(", ")}</td>
+      <td>{movie.plot}</td>
+      <td>{movie.genre}</td>
+      <td>{movie.imdbRating}</td>
+      <td>{movie.director}</td>
+      <td>{movie.year}</td>
+      <td>{movie.dateAdded}</td>
+      <td>
+        <button onClick={() => deleteRow(index)}>Delete</button>
+      </td>
+    </tr>
+  ));
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>TITLE</th>
-          <th>ACTORS</th>
-          <th>PLOT</th>
-          <th>GENRE</th>
-          <th>IMDB RATING</th>
-          <th>DIRECTOR</th>
-          <th>YEAR</th>
-          <th>DATE ADDED</th>
-          <th>DELETE</th>
-        </tr>
-      </thead>
-      <tbody>
-        {movies.map((movie, index) => (
-          <tr key={index}>
-            <td>{movie.title}</td>
-            <td>{movie.actors.join(', ')}</td>
-            <td>{movie.plot}</td>
-            <td>{movie.genre}</td>
-            <td>{movie.imdbRating}</td>
-            <td>{movie.director}</td>
-            <td>{movie.year}</td>
-            <td>{movie.dateAdded}</td>
-            <td>
-              <button onClick={() => deleteRow(index)}>Delete</button>
-            </td>
+    <>
+      <SearchForm setQuery={setQuery} query={query} />
+      <table>
+        <thead>
+          <tr>
+            <th>TITLE</th>
+            <th>ACTORS</th>
+            <th>PLOT</th>
+            <th>GENRE</th>
+            <th>IMDB RATING</th>
+            <th>DIRECTOR</th>
+            <th>YEAR</th>
+            <th>DATE ADDED</th>
+            <th>DELETE</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>{moviesRows}</tbody>
+      </table>
+    </>
   );
 }
+
+export default Table;

@@ -12,8 +12,7 @@ export default function App() {
     const newMovieData = {
       ...formData,
       actors: formData.actors.split(", "),
-      dateAdded: `${new Date()}`,
-      dateModified: `${new Date()}`,
+      dateAdded: `${new Date()}`
     };
 
     setMoviesData(prevMoviesData => [...prevMoviesData, newMovieData]);
