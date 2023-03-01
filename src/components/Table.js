@@ -13,8 +13,8 @@ const Table = ({ movies, deleteMovie }) => {
   };
 
   const filteredMovies = movies.filter((movie) => {
-    return movie[`${query.searchCategory}`]
-      .includes(query.searchText);
+    return movie[query.searchCategory].toLowerCase()
+      .includes(query.searchText.toLowerCase());
   });
 
   console.log("Filtered Movie:  ", filteredMovies)
@@ -53,7 +53,7 @@ const Table = ({ movies, deleteMovie }) => {
             <th>DELETE</th>
           </tr>
         </thead>
-        <tbody>{moviesRows}</tbody>
+        <tbody>{filteredMovies.length === 0 ? <h1>Not Found</h1> : moviesRows}</tbody>
       </table>
     </>
   );
