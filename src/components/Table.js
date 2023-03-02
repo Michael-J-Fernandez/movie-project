@@ -1,18 +1,22 @@
 import { useState } from "react";
 import SearchForm from "./SearchForm";
 
-const Table = ({ movies, deleteMovie }) => {
+const Table = ({ moviesData, setMoviesData }) => {
 
   const [query, setQuery] = useState({
     searchText: "",
     searchCategory: "title",
   });
 
-  const deleteRow = (index) => {
-    deleteMovie(index);
+
+  const deleteMovie = (index) => {
+    setMoviesData((prevMoviesData) => {
+      return prevMoviesData.filter((movie, i) => i !== index);
+    });
   };
 
-  const filteredMovies = movies.filter((movie) => {
+
+  const filteredMovies = moviesData.filter((movie) => {
     const { searchCategory, searchText } = query;
 
     if (searchCategory !== 'actors') {
@@ -36,7 +40,7 @@ const Table = ({ movies, deleteMovie }) => {
       <td>{movie.year}</td>
       <td>{movie.dateAdded}</td>
       <td>
-        <button onClick={() => deleteRow(index)}>Delete</button>
+        <button onClick={() => deleteMovie(index)}>Delete</button>
       </td>
     </tr>
   ));

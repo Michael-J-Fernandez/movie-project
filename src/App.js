@@ -5,6 +5,9 @@ import Table from './components/Table'
 
 export default function App() {
 
+
+  // /* --- MOVE THIS CODE TO MovieForm
+
   const [moviesData, setMoviesData] = useState(data)
 
   const addMovie = (formData) => {
@@ -14,20 +17,19 @@ export default function App() {
       actors: formData.actors.split(", "),
       dateAdded: `${new Date()}`
     };
-
+    
     setMoviesData(prevMoviesData => [...prevMoviesData, newMovieData]);
   }
 
-    const deleteMovie = (index) => {
-      setMoviesData(prevMoviesData => {
-        return prevMoviesData.filter((movie, i) => i !== index)
-      })
-    }
+
 
   return (
     <>
       <h1>Movie Form</h1>
-      <Table movies={moviesData} deleteMovie={deleteMovie}/>
+      <Table
+        moviesData={moviesData}
+        setMoviesData={setMoviesData}
+      />
       <MovieForm addMovie={addMovie}/>
     </>
   );
