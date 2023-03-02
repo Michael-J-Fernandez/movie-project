@@ -24,8 +24,6 @@ const Table = ({ movies, deleteMovie }) => {
     }
   });
 
-  // console.log("Filtered Movie:  ", filteredMovies)
-
 
   const moviesRows = filteredMovies.map((movie, index) => (
     <tr key={index}>

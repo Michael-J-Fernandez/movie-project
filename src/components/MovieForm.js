@@ -21,6 +21,8 @@ const MovieForm = ({ addMovie }) => {
     setFormData(prevFormData => ({...prevFormData, [name]: value}));
   }
 
+
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -28,8 +30,10 @@ const MovieForm = ({ addMovie }) => {
     setFormData(resetForm)
   };
 
+
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="movie-form" onSubmit={handleSubmit}>
       <label htmlFor="title">
         Title:
         <input

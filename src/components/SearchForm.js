@@ -1,5 +1,3 @@
-// import { useState } from "react";
-
 const SearchForm = ({ setQuery, query }) => {
 
 
@@ -9,7 +7,7 @@ const SearchForm = ({ setQuery, query }) => {
   };
 
   return (
-    <form /*onSubmit={handleSearchFormSubmit}*/>
+    <form>
       <label htmlFor="searchText">
         Find Movie:
         <input
@@ -110,8 +108,6 @@ const SearchForm = ({ setQuery, query }) => {
         />
         Date Added
       </label>
-
-      {/* <button>Search</button> */}
     </form>
   );
 };
