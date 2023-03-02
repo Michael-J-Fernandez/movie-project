@@ -1,36 +1,32 @@
-import {useState} from 'react'
+import { useState } from "react";
 
 const MovieForm = ({ addMovie }) => {
-
-    const resetForm = {
-        title: "",
-        actors: "",
-        plot: "",
-        genre: "",
-        imdbRating: "",
-        director: "",
-        year: "",
-        dateAdded: "",
-    };
+  
+  const resetForm = {
+    title: "",
+    actors: "",
+    plot: "",
+    genre: "",
+    imdbRating: "",
+    director: "",
+    year: "",
+    dateAdded: "",
+  };
 
   const [formData, setFormData] = useState(resetForm);
 
   const handleFormInputChange = (event) => {
     const { name, value } = event.target;
 
-    setFormData(prevFormData => ({...prevFormData, [name]: value}));
-  }
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
 
-
-  
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    addMovie(formData)
-    setFormData(resetForm)
+    addMovie(formData);
+    setFormData(resetForm);
   };
-
-
 
   return (
     <form className="movie-form" onSubmit={handleSubmit}>
@@ -121,6 +117,6 @@ const MovieForm = ({ addMovie }) => {
       <button>Add</button>
     </form>
   );
-}
+};
 
-export default MovieForm
+export default MovieForm;

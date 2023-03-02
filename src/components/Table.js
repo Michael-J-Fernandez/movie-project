@@ -2,12 +2,10 @@ import { useState } from "react";
 import SearchForm from "./SearchForm";
 
 const Table = ({ moviesData, setMoviesData }) => {
-
   const [query, setQuery] = useState({
     searchText: "",
     searchCategory: "title",
   });
-
 
   const deleteMovie = (index) => {
     setMoviesData((prevMoviesData) => {
@@ -15,19 +13,18 @@ const Table = ({ moviesData, setMoviesData }) => {
     });
   };
 
-
   const filteredMovies = moviesData.filter((movie) => {
     const { searchCategory, searchText } = query;
 
-    if (searchCategory !== 'actors') {
-      return movie[searchCategory].toString().toLowerCase()
+    if (searchCategory !== "actors") {
+      return movie[searchCategory]
+        .toString()
+        .toLowerCase()
         .includes(searchText.toLowerCase());
-
-    } else if (searchCategory === 'actors') {
-      return movie[searchCategory].join(' ').toLowerCase().includes(searchText)
+    } else if (searchCategory === "actors") {
+      return movie[searchCategory].join(" ").toLowerCase().includes(searchText);
     }
   });
-
 
   const moviesRows = filteredMovies.map((movie, index) => (
     <tr key={index}>
@@ -62,10 +59,16 @@ const Table = ({ moviesData, setMoviesData }) => {
             <th>DELETE</th>
           </tr>
         </thead>
-        <tbody>{filteredMovies.length === 0 ? <h1 className="not-found">Not Found</h1> : moviesRows}</tbody>
+        <tbody>
+          {filteredMovies.length === 0 ? (
+            <h1 className="not-found">Not Found</h1>
+          ) : (
+            moviesRows
+          )}
+        </tbody>
       </table>
     </>
   );
-}
+};
 
 export default Table;
