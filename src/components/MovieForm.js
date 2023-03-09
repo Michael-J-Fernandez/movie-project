@@ -13,7 +13,7 @@ const MovieForm = ({ addMovie }) => {
     dateAdded: "",
   };
 
-  const [formData, setFormData] = useState(resetForm);
+  const [formData, setFormData] = useState({resetForm});
 
   const handleFormInputChange = (event) => {
     const { name, value } = event.target;

@@ -22,7 +22,10 @@ const Table = ({ moviesData, setMoviesData }) => {
         .toLowerCase()
         .includes(searchText.toLowerCase());
     } else if (searchCategory === "actors") {
-      return movie[searchCategory].join(" ").toLowerCase().includes(searchText);
+      return movie[searchCategory]
+        .join(" ")
+        .toLowerCase()
+        .includes(searchText);
     }
   });
 
