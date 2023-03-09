@@ -38,7 +38,7 @@ const MovieForm = ({ addMovie }) => {
           value={formData.title}
           id="title"
           placeholder="Movie title"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleFormInputChange}
         />
       </label>
@@ -50,7 +50,7 @@ const MovieForm = ({ addMovie }) => {
           value={formData.actors}
           id="actors"
           placeholder="Actors"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleFormInputChange}
         />
       </label>
@@ -62,7 +62,7 @@ const MovieForm = ({ addMovie }) => {
           value={formData.plot}
           id="plot"
           placeholder="Plot..."
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleFormInputChange}
         />
       </label>
@@ -74,7 +74,7 @@ const MovieForm = ({ addMovie }) => {
           value={formData.genre}
           id="genre"
           placeholder="Grenre(s)"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleFormInputChange}
         />
       </label>
@@ -86,7 +86,7 @@ const MovieForm = ({ addMovie }) => {
           value={formData.imdbRating}
           id="imdbRating"
           placeholder="Rating"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleFormInputChange}
         />
       </label>
@@ -98,7 +98,7 @@ const MovieForm = ({ addMovie }) => {
           value={formData.director}
           id="director"
           placeholder="Director"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleFormInputChange}
         />
       </label>
@@ -110,7 +110,7 @@ const MovieForm = ({ addMovie }) => {
           value={formData.year}
           id="year"
           placeholder="Year"
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleFormInputChange}
         />
       </label>
