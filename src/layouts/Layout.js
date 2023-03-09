@@ -7,8 +7,8 @@ export default function Layout() {
         <>
             <h1>This is my Layout Nav!</h1>
             <nav className="nav-bar">
-                <NavLink to="">Home</NavLink>
-                <NavLink to="">Movies</NavLink>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="movies">Movies</NavLink>
             </nav> 
             <Outlet />
         </>
