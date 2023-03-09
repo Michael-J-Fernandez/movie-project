@@ -16,7 +16,7 @@ const SearchForm = ({ setQuery, query }) => {
           name="searchText"
           value={query.searchText}
           placeholder="Search criteria..."
-          autocomplete="off"
+          autoComplete="off"
           onChange={handleSearchInputChange}
         />
       </label>

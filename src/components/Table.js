@@ -64,7 +64,9 @@ const Table = ({ moviesData, setMoviesData }) => {
         </thead>
         <tbody>
           {filteredMovies.length === 0 ? (
-            <h1 className="not-found">Not Found</h1>
+            <tr className="not-found">
+              <td>Not Found</td>
+            </tr>
           ) : (
             moviesRows
           )}
