@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from './layouts/Layout'
+import Home from './pages/Home'
 import MovieForm from "./components/MovieForm";
 import Table from "./components/Table";
 
@@ -36,8 +37,9 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Table moviesData={moviesData} setMoviesData={setMoviesData} />} /> 
-           <Route path="movies" element={<MovieForm addMovie={addMovie} />} />
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Table moviesData={moviesData} setMoviesData={setMoviesData} />} /> 
+           <Route path="movies/:id" element={<MovieForm addMovie={addMovie} />} />
         </Route>
       </Routes>
     </BrowserRouter>
