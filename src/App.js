@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
-// import data from "./data";
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Layout from './layouts/Layout'
 import MovieForm from "./components/MovieForm";
 import Table from "./components/Table";
+
+
 const DATA_URL = "https://raw.githubusercontent.com/Michael-J-Fernandez/movie-project/00953d3a1e0683a198f6f79072721f221e68b657/src/data-copy.json";
 
 export default function App() {
@@ -29,10 +33,13 @@ export default function App() {
   };
 
   return (
-    <>
-      <h1>Movie Form</h1>
-      <Table moviesData={moviesData} setMoviesData={setMoviesData} />
-      <MovieForm addMovie={addMovie} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Table moviesData={moviesData} setMoviesData={setMoviesData} />} /> 
+           <Route path="movies" element={<MovieForm addMovie={addMovie} />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
