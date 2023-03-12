@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, Outlet } from 'react-router-dom'
 import SearchForm from "./SearchForm";
 
 const Table = ({ moviesData, setMoviesData }) => {
@@ -31,7 +32,7 @@ const Table = ({ moviesData, setMoviesData }) => {
 
   const moviesRows = filteredMovies.map((movie, index) => (
     <tr key={index}>
-      <td>{movie.title}</td>
+      <td><Link to={`/movies/${index}`}>{movie.title}</Link></td>
       <td>{movie.actors.join(", ")}</td>
       <td>{movie.plot}</td>
       <td>{movie.genre}</td>
@@ -72,6 +73,7 @@ const Table = ({ moviesData, setMoviesData }) => {
           )}
         </tbody>
       </table>
+      <Outlet />
     </>
   );
 };
