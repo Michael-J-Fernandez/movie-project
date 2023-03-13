@@ -32,7 +32,7 @@ const Table = ({ moviesData, setMoviesData }) => {
 
   const moviesRows = filteredMovies.map((movie, index) => (
     <tr key={index}>
-      <td><Link to={`/movies/${index}`}>{movie.title}</Link></td>
+      <td><Link to={`/movies/${movie.title}`}>{movie.title}</Link></td>
       <td>{movie.actors.join(", ")}</td>
       <td>{movie.plot}</td>
       <td>{movie.genre}</td>
