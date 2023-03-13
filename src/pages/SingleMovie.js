@@ -2,7 +2,10 @@ import { Link, useParams } from "react-router-dom";
 
 const SingleMovie = ({ moviesData }) => {
 
-    const { id } = useParams();
+    const { singleTitle } = useParams();
+
+    const singleMovie = moviesData.find(movie => movie.title === singleTitle);
+
     const {
       title,
       actors,
@@ -12,7 +15,7 @@ const SingleMovie = ({ moviesData }) => {
       director,
       year,
       dateAdded,
-    } = moviesData[id];
+    } = singleMovie;
 
     return (
       <>
