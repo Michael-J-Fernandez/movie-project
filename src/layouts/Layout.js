@@ -5,10 +5,17 @@ export default function Layout() {
 
     return (
         <>
-            <h1>This is my Layout Nav!</h1>
             <nav className="nav-bar">
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="movies">Movies</NavLink>
+                <NavLink 
+                    to="/"
+                    className={({isActive}) => isActive ? "link active-link" : "link"}
+                >Home</NavLink>
+
+                <NavLink 
+                    to="movies"
+                    className={({isActive}) => isActive ? "link active-link" : "link"}
+                >Movies</NavLink>
+
             </nav> 
             <Outlet />
         </>

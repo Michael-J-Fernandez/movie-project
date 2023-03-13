@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 thead {
     background-color: black;
     color: white;
@@ -9,4 +13,28 @@ td {
 
 .not-found {
     color: red;
+}
+
+.nav-bar {
+    font-size: 50px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    margin: 20px 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(98, 98, 98);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+
+.active-link {
+    text-decoration: underline;
+    color: black;
 }
